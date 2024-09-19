@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Random Joke Generator</h1>
+    <button id="jokeBtn">Get a Joke</button>
+    <p id="jokeDisplay">Click the button to get a joke!</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jokeBtn = document.getElementById('jokeBtn');
+            const jokeDisplay = document.getElementById('jokeDisplay');
+
+            jokeBtn.addEventListener('click', function() {
+                // Fetching a random joke from an API
+                fetch('https://v2.jokeapi.dev/joke/Any')
+                    .then(response => response.json()) // Parsing the JSON response
+                    .then(data => {
+                        // Displaying the joke on the webpage
+                        if (data.type === 'single') {
+                            jokeDisplay.textContent = data.joke;
+                        } else {
+                            jokeDisplay.textContent = '${data.setup} - ${data.delivery}';
+                        }
+                    })
+                    .catch(error => {
+                        // Handling errors
+                        jokeDisplay.textContent = 'Oops! Something went wrong. Please try again later.';
+                        console.error('Error fetching joke:', error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

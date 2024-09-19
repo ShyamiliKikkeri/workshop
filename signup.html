@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        h2 {
+            text-align: center;
+            color: rgb(15, 15, 16);
+            font-size: 50px;
+            font-family: Algerian, sans-serif;
+        }
+        form {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            border: 3px solid black;
+            width: 30%;
+            background-color: #757272;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /*background-color: #938f8f;*/
+        }
+        #name, #phone, #email, #password {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #141313;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: rgb(18, 56, 154);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Signup Page</h2>
+    <form label="signup_page" onsubmit="showAlert(event)">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" placeholder="Enter the name"><br>
+        <br>
+        <label for="phone">Phone</label><br>
+        <input type="phone" id="phone" placeholder="Enter the phone number"><br>
+        <br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" placeholder="Enter the email"><br>
+        <br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" placeholder="Enter the password"><br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function showAlert(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the values from the input fields
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+
+            // Display an alert with the entered values
+            alert("Name: " + name + "\nEmail: " + email + "\nPhone Number: " + phone + "\nPassword: " + password);
+
+            // Optional: submit the form after showing the alert
+            // event.target.submit();
+        }
+    </script>
+</body>
+</html>
