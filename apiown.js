@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomPage = Math.floor(Math.random() * 1000) + 1;
 
         // Fetching a random book from the Open Library search API
-        fetch('https://openlibrary.org/search.json?subject=fiction&page=${randomPage}')
+        fetch(`https://openlibrary.org/search.json?subject=fiction&page=${randomPage}`)
             .then(response => response.json()) // Parsing the JSON response
             .then(data => {
                 // Check if we have any books on the selected page
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const authors = randomBook.author_name ? randomBook.author_name.join(', ') : 'Unknown Author';
 
                     // Displaying the book information on the webpage
-                    bookDisplay.textContent = 'Title:${bookTitle} | Authors: ${authors}';
+                    bookDisplay.textContent = `Title: ${bookTitle} | Authors: ${authors}`;
                 } else {
                     // If no books are found on the page
                     bookDisplay.textContent = 'No books found on this page. Try again!';

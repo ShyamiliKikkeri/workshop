@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json()) // Parsing the JSON response
             .then(data => {
                 // Displaying the joke on the webpage
-                jokeDisplay.textContent = '${data.setup} ::::: ${data.punchline}';
+                jokeDisplay.textContent = `${data.setup} ::::: ${data.punchline}`;
             })
             .catch(error => {
                 // Handling errors
